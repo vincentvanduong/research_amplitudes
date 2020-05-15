@@ -1,0 +1,113 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Van Vincent Duong}
+\title{Scattering Amplitudes Research Project}
+\begin{document}
+
+\maketitle
+
+\section*{Week 1}
+
+Scattering amplitudes are calculated from the fundamental interactions occurring at the quantum scale in collisions.  They are useful in scattering experiments, especially at ultra-relativistic energies.  The research project this summer has a few goals:
+\begin{itemize}
+	\item Long-tern: 
+\end{itemize}
+
+\section*{Week 2}
+\subsection*{Readings}
+\subsection*{Meetings}
+The aim of this project is to constrain the low-energy limit scattering amplitude of 4 gravitons.  This amounts to studying higher derivative corrections to the Einstein-Hilbert action in 3+1 dimensional general relativity:
+\begin{align*}
+S & = \frac{1}{16\pi G}\int d^4x \sqrt{-g}R.
+\end{align*}
+But nothing is stopping us from postulating that there are higher order derivative corrections to the full Lagrangian, as long as they are small and covariant.  What does small mean?  Remember that curvature $R$ has units of inverse length squared ($[R] = L^{-2} = M^{2}$), and that Newton's Constant has units of length squared ($[G_N] = M^{-2}$).  So, the action could take the form of
+\begin{align*}
+S & = \frac{1}{16\pi G}\int d^4x \sqrt{-g}(R + \mathcal{O}(G R^2) + \cdots ).
+\end{align*}
+The purpose of this exercise is to show how the full Lagrangian can contain additional terms.  In Quantum Field Theory, this directly translates to a new set of Feynman rules and more rich interactions (but perhaps not allowed as we will soon find out!).  New Feynman rules emerge when quantize the gravitational degrees of freedom of the metric tensor $g_{\mu \nu}$.  If we treat gravitons as metric excitation around a flat space-time, then there is a perturbation expansion:
+
+\begin{align*}
+	g_{\mu \nu} = \eta _{\mu \nu} + \epsilon h_{\mu \nu}.
+\end{align*}
+It is precisely the tensor of $h_{\mu \nu}$ which tell us how gravitons emerge in flat-space.
+
+It is also worth asking how can gravitons couple to matter?  For example, a straightforward procedure would be to introducing a scalar particle $\phi$.  In flat space-time, the scalar particle has the following Lagrangian description:
+\begin{align*}
+	S_{\mathrm{scalar}} = \int d^4 x \left(\partial^\mu \phi \partial_\mu \phi- m^2 \phi^2\right),
+\end{align*}
+which can be promoted to a covariant action by introducing appropriate measures and derivatives:
+\begin{align*}
+	S_{\mathrm{scalar}} = \int d^4 x \sqrt{-g}\left(\nabla^\mu \phi \nabla_\mu \phi - m^2 \phi^2\right).
+\end{align*}
+The game is now to expand the metric using the $\epsilon$ introduced above. 
+
+So how does this all fit together?  The techniques outlined above allow us to better understand how gravitons would be quantized and how they would couple to matter by first postulating the form of the Lagrangian.  The problem is that there are a myriad of constructions that can be postulated, and then the process of describing each theories own Feynman rules would take a tremendous amount of pen and paper.   Instead we will take the following approach:
+\begin{enumerate}
+	\item Consider \textbf{2-to-2 graviton} scattering.
+	\item Construct the possible scattering amplitude $A_4$ from the \textbf{spinor helicity} formalism + \textbf{little-group scaling} + \textbf{dimensional analysis}.
+	\item Apply \textbf{Unitarity and Locality} constraints to the amplitude.
+\end{enumerate}
+If there are intermediate particles emerging in this interaction (i.e., massive propagators), it would be extremely useful to understand how large the mass is.  This is precisely our goal: If there are heavy particles with masses $m_1, m_2 \dots $ created in the scattering process, is there a mass scale $M$ for which we know that $m_1, m_2, \dots  \geq M$?  This would be useful to know.
+\textbf{Basic Techniques:}
+\begin{itemize}
+	\item Constrain the full-form of the amplitude by studying the high energy limit, whereby particles are effectively massless.
+	\item Study the amplitude at Planck scale energies: $\sqrt{s} \approx m_{pl}$.
+	\item Study the amplitude in intermediate energy scales: between short (heavy) and long (light) time-scales.
+	\item Constrain ourselves to $3 + 1$ dimensions.
+	\item Couple a pair of gravitons to a generic massive particle with mass $m$ and spin $J$ (this will require intermediate polarizations).
+\end{itemize}
+
+Higher derivative terms come at the cost of new massive propagators commonly of the form:
+\begin{align*}
+	G(p) \sim \frac{1}{p^2 - m^2}.
+\end{align*}
+These propagators are directly associated to the force experienced between the two particles via the potential.  Indeed, the propagator is the Fourier transform of the potential $V(r)$:
+\begin{align*}
+	\int d^4 x e^{-ip\cdot x}V(r) \sim G(p).
+\end{align*}
+At large impact parameters, the amplitude will reveal the "classical" force.  For example, in the COM of a graviton, the propagator for will be of the form
+\begin{align*}
+	G(p) \sim \frac{1}{p^2 - m^2} \sim \frac{1}{\vec{p}^2} \implies V(r) \sim \frac{1}{r}.
+\end{align*}
+It is surprising that classically, the amplitude is invariant whether potential is attractive or repulsive.  That is, the sign of the propagator does not change the experiment.  However, this is not true in the field theoretic picture, in which new Feynman diagrams can interfere (at loop level).  For example, there can exist a relative sign between the following two diagrams:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/relative_sign.pdf}
+    \caption{Comparison of two Feynman diagrams for the same scattering process.  If propagator carries a negative sign, then there can be a relative negative sign that appears when summing the amplitude from all processes. \textbf{So what?}  The amplitude will interfere and we can discern whether the potential is attractive or repulsive.  However, this comes at a cost: we needed to introduce a loop-level correction!}
+    \label{fig:mesh1}
+\end{figure}
+
+Bootstrapping the $S$ matrix is the next step.  We define the $S$ matrix by
+\begin{align*}
+	|f\rangle = \overbrace{(1 + i \mathcal M)}^{S} |i\rangle.
+\end{align*}
+It is infinite time-evolution operator between initial and final states in a scattering process.  It must therefore be unitary, which means $S$ is hermitian:
+\begin{align*}
+	S = S^{\dagger}.
+\end{align*}
+We can also interpret $S$ as a the exponential of the Hamiltonian from standard quantum mechanics
+\begin{align*}
+S = e^{-i \int dt H} & = 1 - i \int dt \overbrace{H}^{H_0 + V} + \mathcal{O}(H^2) = 1 + i \mathcal{M}\\
+\implies \int dt V & = - \mathcal{M}.
+\end{align*}
+If the potential is attractive, $V < 0$, so that $\mathcal{M} > 0$.  This is a grand result!
+
+Let's now consider a massive propagator. We can extract the underlying force via a Fourier transform:
+\begin{align*}
+G(p) & \sim \frac{1}{p^2 - m^2}\\
+\implies V(r) \sim \frac{e^{- m r}{r}.
+\end{align*}
+There is a characteristic length scale of $1/m$ which emerges when introducing a mass scale $m$.  Let's now consider an interesting case for the 2-to-2 scattering with an intermediate heavy particle:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{figures/short_length.pdf}
+    \caption{Comparison of two Feynman diagrams for the same scattering process.  If propagator carries a negative sign, then there can be a relative negative sign that appears when summing the amplitude from all processes. \textbf{So what?}  The amplitude will interfere and we can discern whether the potential is attractive or repulsive.  However, this comes at a cost: we needed to introduce a loop-level correction!}
+    \label{fig:mesh2}
+\end{figure}
+\end{document}
