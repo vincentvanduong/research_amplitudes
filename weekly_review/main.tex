@@ -83,6 +83,7 @@ It is surprising that classically, the amplitude is invariant whether potential 
     \label{fig:mesh1}
 \end{figure}
 
+
 Bootstrapping the $S$ matrix is the next step.  We define the $S$ matrix by
 \begin{align*}
 	|f\rangle = \overbrace{(1 + i \mathcal M)}^{S} |i\rangle.
@@ -96,18 +97,58 @@ We can also interpret $S$ as a the exponential of the Hamiltonian from standard 
 S = e^{-i \int dt H} & = 1 - i \int dt \overbrace{H}^{H_0 + V} + \mathcal{O}(H^2) = 1 + i \mathcal{M}\\
 \implies \int dt V & = - \mathcal{M}.
 \end{align*}
+
 If the potential is attractive, $V < 0$, so that $\mathcal{M} > 0$.  This is a grand result!
 
 Let's now consider a massive propagator. We can extract the underlying force via a Fourier transform:
 \begin{align*}
 G(p) & \sim \frac{1}{p^2 - m^2}\\
-\implies V(r) \sim \frac{e^{- m r}{r}.
+\implies V(r) & \sim \frac{e^{- m r}}{r}.
 \end{align*}
 There is a characteristic length scale of $1/m$ which emerges when introducing a mass scale $m$.  Let's now consider an interesting case for the 2-to-2 scattering with an intermediate heavy particle:
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.3\textwidth]{figures/short_length.pdf}
-    \caption{Comparison of two Feynman diagrams for the same scattering process.  If propagator carries a negative sign, then there can be a relative negative sign that appears when summing the amplitude from all processes. \textbf{So what?}  The amplitude will interfere and we can discern whether the potential is attractive or repulsive.  However, this comes at a cost: we needed to introduce a loop-level correction!}
+    \caption{If there is a massive propagator, the interaction essentially collapses from 2 3-point couplings into one 4-point coupling.}
     \label{fig:mesh2}
 \end{figure}
+It is therefore natural to examine how massive propagators look like as an expansion in $1/m^2$.  For example
+\begin{align*}
+	G(p) \sim \frac{1}{p^2 - m^2} \approx \frac{1}{m^2}\left(1 - \frac{p^2}{m^2} + \mathcal{O}(p^4/m^4)\right).
+\end{align*}
+The propagator us now a polynomial expansion in $p$.  We know from Fourier analysis that this corresponds to a $\delta$ potential in position space and leads to the appropriate Feynman rules for higher order derivative terms.
+\textbf{Question to answer:} Suppose we find a polynomial correction to the propagator.
+\begin{itemize}
+	\item Can we find the mass cut-off of the theory $M$?
+	\item How does this look like if we are agnostic about the coupling constants in the theory?  They may be small, and have \textit{any} sign.
+\end{itemize}
+Problem statement:  If we consider 2-to-2 particle scattering with a massive intermediate spin-$J$ particle, what can be said about the amplitude?  There are some complications and general strategies.  The first is to map spin-$J$ particles to polarization 3-vectors.  We need to construct Lorentz invariant quantities such as the vertex rule: $f(\epsilon \cdot v, \epsilon^2, v^2)$. In particular, we can form the intermediate particle of mass $M$ by colliding two gravitons with 4-momenta $M/2 (1,\hat{v}), M/2(1,-\hat{v})$ and the polarization vector $\epsilon$.  Nima found that
+\begin{align*}
+	A_4 = g^2 \frac{P_J(\cos(\theta_{v,v'}))}{M^2 - s},
+\end{align*}
+where $P_J$ are the Lagendre polynomials and the angle $\theta_{v,v'}$ denotes one of the angles between in-coming and out-going gravitons
+
+\section*{Week 3}
+\subsection*{Readings}
+\subsection*{Meetings}
+On Tuesday's meeting, we briefly discussed the polarization vectors.  The main discussion revolved around Simon's current work.  I had some confusion on polarization vectors -- they do not transform as a 4-vector and are not well defined when pointing along the direction of motion.  In particular, a spin $J$ particle, will be described by a $2J$ tensor.  For example, they can be described by fields with $A_{\mu_1, \cdots, \mu_{2J}}$.  In QED, these are the usual $\epsilon^{\mu}$ and for a graviton $h_{\mu \nu}$.  
+\begin{align*}
+	h_{\mu \nu} = \begin{pmatrix}
+* & * & *\\ 
+ &  * & *\\ 
+ &  &  *
+\end{pmatrix}.
+\end{align*}
+There are some constraints: it must be symmetric in its indices because of rotational invariance.  Moreover, it must be traceless.  Thus, the dimensionality for this group should be $\frac{3(3+1)}{2} - 1 = 5 = 2(2) + 1 = 2J + 1$. 
+\\
+\textbf{Goals for this week}
+\begin{itemize}
+	\item Read notes from Simon.
+	\item Try to enumerate all the possible expansions for the symmetric polynomials to higher order (e.g., $g_4, \cdots$).
+	\item Reproduce Simon's work
+	\item Familiarize myself with Legendre polynomials and Gegenabaum polynomials.
+	\item Notice that eq. 5.41 does \textbf{not} contain gravity while eq. 5.40 does.  Can this be reproduced at higher order corrections?
+	\item Can we obtain a bound on the couplings that are independent of $G_N$? That is, can we obtain a universal bound?
+\end{itemize}
+
 \end{document}
