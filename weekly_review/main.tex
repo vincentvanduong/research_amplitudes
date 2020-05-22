@@ -151,4 +151,70 @@ There are some constraints: it must be symmetric in its indices because of rotat
 	\item Can we obtain a bound on the couplings that are independent of $G_N$? That is, can we obtain a universal bound?
 \end{itemize}
 
+\subsection*{Notes}
+Equation 5.34 of Simon's work claimed that the amplitude from the 2-to-2 scattering of a \textbf{massless} scalar particle can be expanded
+\begin{align*}
+\mathcal{M}_{\mathrm{low}}(s, t)=& 8 \pi G_{N}\left[\frac{s t}{u}+\frac{s u}{t}+\frac{t u}{s}\right]-g^{2}\left[\frac{1}{s}+\frac{1}{t}+\frac{1}{u}\right]-\lambda \\
+&+g_{2}\left(s^{2}+t^{2}+u^{2}\right)+g_{3} s t u+g_{4}\left(s^{2}+t^{2}+u^{2}\right)^{2}+\ldots.
+\end{align*}
+There are several things I do not understand completely in this Ansatz:
+\begin{itemize}
+	\item Why does gravity couple only in interactions of the form: $\frac{st}{u}$?  Is this from dimensional analysis?
+	\item Why should we expect the expansion to be symmetric in the Mandelstem variables $s,t,u$?  Is this a result from crossing symmetry for scalar particle? \textbf{I can probably show this}
+	\item In math, we learn that there is a more natural basis of symmetric polynomials of $3$ variables.  Why are they not used?
+\end{itemize}
+Simon's equation can be re-written in terms of the natural symmetric polynomials:
+\begin{align*}
+	e_0 & = 1\\
+	e_1 & = s + t + u = 0\\
+	e_2 & = st + su + ut\\
+	e_3 & = stu
+\end{align*}
+We will see that the massless condition provides a huge simplification when constructing symmetric polynomials in terms of these basis functions.  I will not re-write Simon's expansion in terms of these basis polynomials
+\begin{align*}
+	s^2 + t^2 + u^2 & = (s+t+u)^2 - 2(st + su + tu) = e_1 ^2 -2e_2 = -2e_2\\
+	(s^2 + t^2 + u^2 )^2 & = 4e_2 ^4.
+\end{align*}
+This translates to
+\begin{align*}
+\mathcal{M}_{\mathrm{low}}(s, t)=& 8 \pi G_{N}\left[\frac{s t}{u}+\frac{s u}{t}+\frac{t u}{s}\right]-g^{2}\left[\frac{1}{s}+\frac{1}{t}+\frac{1}{u}\right]-\lambda \\
+&+g_{2}\left(-2e_2 ^2 \right)+g_{3} (e_3) +g_{4}\left(4e_2 ^4\right)+\ldots.
+\end{align*}
+It is now easy to perform a symmetric polynomial expansion of the amplitude in terms of $e_1, e_2, e_3$ order by order.  Each order in the expansion will contain terms that are products of the elementary symmetric polynomials.  Let's check this with the next leading order
+\begin{align*}
+\mathcal{O}(5) &: \underbrace{e_1^5}_{0}, \underbrace{e_1^3}_{0} e_2, \underbrace{e_1}_{0} e_2 ^2 , \underbrace{e_1^2}_{0}e_3 , e_2 e_3
+\end{align*}
+\textbf{So what:} the only non-vanishing terms contain powers of $e_2$ and $e_3$ only!  I am now ready to perform the power expansion using the basis of non-vanishing symmetric polynomials.  To adhere with Simon's convention, let us redefine our basis polynomials:
+\begin{align*}
+	e_2 \rightarrow - \frac{e_2}{2} = s^2 + t^2 + u^2.
+\end{align*}
+Then computing the expansion:
+\begin{align*}
+	& g_5 (e_2 e_1)\\
+	& g_6 (e_3 ^2) + g_6 '(e_2 ^3)\\
+	& g_7 (e_2^2 e_3)\\
+	& g_8 (e_3^2 e_2) + g_8 '(e_2 ^4)\\
+	& g_9 (e_3^3) + g_9 ' (e_2 ^3 e_3)\\
+	&\vdots
+\end{align*}
+It becomes clear that in the $\mathcal{O}(n)$ order, I will have terms of the form:
+\begin{align*}
+e_2 ^x e_3 ^y,
+\end{align*}
+such that $2x + 3y = n$, where $x,y, \in \{0,1,2,\dots\}$.  Moreover, the number of terms at that order will be the number of non-negative solutions for $(x,y)$ that solve the constraint.  
+\\
+\\
+I am now ready to obtain various constraints by appropriately setting either $s,t,u$ to $0$ and checking how things look like.  For example, at order 5:
+\begin{align*}
+	\frac{1}{s(s+u)}g_5 (stu) (s^2 + t^2 + u^2)& = g_5 \frac{-s(s+u)u}{s (s+u)} (s^2 + (-s-u)^2 + u^2)\\
+	& = -g_5 u (s^2 + s^2 + 2us + u^2 + u^2)\\
+	& = -2 g_5 u (s^2 + us + u^2)\\
+	& \rightarrow -2g_5 u^3 \quad \text{as} \quad s\rightarrow 0\\
+	\frac{1}{(st)^2}g_5 (stu) (s^2 + t^2 + u^2)& = g_5 \frac{u}{st}\left(s^2 + t^2 + (-s-t)^2\right)\\
+	& =-  2g_5 \frac{s+t}{st}\left(s^2 + st + t^2\right)\\
+	& = -2g_5 \left(\frac{1}{t} + \frac{1}{s}\right)\left(s^2 + st + t^2\right)\\
+	& = -2g_5 \left(\frac{s^2}{t} + 2s + 2t + \frac{t^2}{s}\right)\\
+	& = -2g_5 \left( \frac{s^2}{-(s+u)} + 2s - 2(s+u) + \frac{(s+u)^2}{s}\right)\\
+	& \rightarrow -2g_5 \frac{u^2}{s} \quad \text{as} \quad s\rightarrow 0
+\end{align*}
 \end{document}
